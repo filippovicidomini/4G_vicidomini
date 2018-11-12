@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+
 int quantità;
 bool superstar = false;
 void inizializza(); // verranno chiesti i la quantità di numeri da inserire e la possibilità di fare una giocata "Superstar"
@@ -11,11 +12,15 @@ int super; //numero valido per superstar;
 int estrazione[6];//lista dei numeri che vengono estratti
 int jolly; //è il numero per la vincita superstar
 
+int calcolacombinazioni(); // https://www.matematicamente.it/forum/problema-di-calcolo-combinatorio-t103516.html  sito da dove ho trovato la formula
+int fattoriale(int x); //calcola il numero fattoriale di un numero, FUNZIONA
+
 
 int main(){
   inizializza();
   chiedinumeri();
   generanum();
+cout <<  calcolacombinazioni();
 }
 
 void inizializza(){
@@ -54,12 +59,23 @@ void chiedinumeri(){
 }
 
 void generanum(){
+    srand (time(NULL)); //serve per potere utilizzare la funzione random
   for(int i = 0; i < 6; i++){
-      estrazione[i]=1+rand()%90;
+      estrazione[i]=rand()%90;
   }
- jolly=1+rand()%90;
-
-cout << "la serie di numeri estratti è: ";
-for(int i = 0; i < 6; i++) cout<< estrazione[i]<<endl;
-if(superstar) cout<< " il numero superstar è: "<< jolly<<endl;
+ jolly=rand()%90;
+ cout << "la serie di numeri estratti è: ";
+ for(int i = 0; i < 6; i++) cout<< estrazione[i]<<endl;
+ if(superstar) cout<< " il numero superstar è: "<< jolly<<endl;
 }
+//non so se questa funzione vada bene, molto probabilemte non va bene
+int calcolacombinazioni(){
+  int combinazioni = 0;
+  combinazioni = fattoriale(12)/(fattoriale(quantità)*(fattoriale(12-quantità)));
+  return combinazioni;
+}
+int fattoriale(int x){
+   int a = x;
+   for(int i = 1; i < a; i++) x = x * i;
+   return x;
+ }
