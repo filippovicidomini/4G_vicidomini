@@ -1,3 +1,3 @@
-# 4G_vicidomini
+# esercizi 4° Liceo
 Cartella per i vari esercizi durante l'anno.
-Gli esercizi sono salvati con ordine anno-mese-giorno (AA/MM/GG) in modo che vengano visualizzati in ordine cronologico.
+Attualmente vi sono essenzialmente 2 esercizi, il resto sono stati persi dell'abbandono dell'organization del liceo.
